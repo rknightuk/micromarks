@@ -1,0 +1,82 @@
+.login {
+    display: flex;
+    justify-content: center;
+}
+
+.login__input {
+    width: 300px;
+}
+
+#link__template {
+    display: none;
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+}
+
+.avatar {
+    margin-right: 10px;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+}
+
+.actions {
+    margin-top: 20px;
+    display: flex;
+}
+
+.search {
+    width: 300px;
+}
+
+.links {
+    margin-top: 10px;
+}
+
+.link {
+    display: flex;
+    position: relative;
+    align-items: center;
+    border: 1px solid #d9d9d9;
+    margin-bottom: 5px;
+    padding: 5px 30px 20px 5px;
+}
+
+.link__checkbox {
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+.link__title img {
+    max-width: 200px;
+}
+
+.link__dates {
+    font-size: 0.8em;
+}
+
+.link__delete {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.logout-button {
+
+}
