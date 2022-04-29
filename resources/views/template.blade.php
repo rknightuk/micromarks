@@ -9,6 +9,8 @@
 
     <title>Micromarks - Manage your Micro.blog Bookmarks</title>
 
+    <script src="https://cdn.usefathom.com/script.js" data-site="VAYWMJXG" defer></script>
+
 </head>
     <body>
 
