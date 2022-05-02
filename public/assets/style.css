@@ -7,6 +7,10 @@
     width: 300px;
 }
 
+.login__remember {
+    text-align: center;
+}
+
 #link__template {
     display: none;
 }
