@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use IndieAuth\Client;
+use Throwable;
 
 class IndieAuthController extends Controller
 {
@@ -25,11 +26,21 @@ class IndieAuthController extends Controller
         Client::$clientID = $appUrl . '/';
         Client::$redirectURL = $appUrl . '/redirect';
 
-        [$authorizationURL, $error] = Client::begin($request->input('url'), 'create');
+        $url = $request->input('url');
+        if (!$url)
+        {
+            return redirect()->back()->withErrors('Domain is required');
+        }
+
+        try {
+            [$authorizationURL, $error] = Client::begin($url, 'create');
+        } catch (Throwable $e)
+        {
+            return redirect()->back()->withErrors($e->getMessage());
+        }
 
         if ($error) {
-            echo "<p>Error: ".$error['error']."</p>";
-            echo "<p>".$error['error_description']."</p>";
+            return redirect()->back()->withErrors($error);
         } else {
             // Redirect the user to their authorization endpoint
             header('Location: '.$authorizationURL);
@@ -49,7 +60,7 @@ class IndieAuthController extends Controller
 
         if ($error)
         {
-            dd($error); // todo error
+            return redirect()->back()->withErrors($error);
         } else {
             \session()->put('mb_token', $response['response']['access_token']);
             \session()->put('mb_user', $response['response']['profile']);

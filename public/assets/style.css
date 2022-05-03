@@ -11,6 +11,13 @@
     text-align: center;
 }
 
+.errors {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: #e74c3c;
+}
+
 #link__template {
     display: none;
 }

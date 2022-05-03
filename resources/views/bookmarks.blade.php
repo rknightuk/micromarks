@@ -46,6 +46,7 @@
 
             document.querySelectorAll('.link__delete').forEach(item => {
                 item.addEventListener('click', e => {
+                    e.preventDefault()
                     const id = e.currentTarget.dataset.id
                     deleteLink(id)
                 })
