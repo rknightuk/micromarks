@@ -4,6 +4,7 @@
 
     <div class="header">
         <h1><img src="/assets/bookmark.svg">Micromarks</h1>
+        <p>Manage your <a href="https://micro.blog">Micro.blog</a> bookmarks.</p>
     </div>
     <div class="details">
         <div>
@@ -86,10 +87,14 @@
             const el = document.getElementById("link__template").cloneNode(true)
             el.id = null
             el.dataset.id = link.id
-            el.getElementsByClassName('link__title')[0].innerHTML = link.content_html
-            const a = el.getElementsByClassName('link__link')[0].getElementsByTagName('a')[0]
-            a.href = link.url
-            a.innerText = link.url
+            let content = link.content_html
+            const contentEl = document.createElement('span')
+            contentEl.innerHTML = content
+            const sourceLink = Array.from(contentEl.getElementsByTagName('a')).slice(-1)[0]
+            sourceLink.remove()
+            el.getElementsByClassName('link__title')[0].append(contentEl)
+            sourceLink.title = sourceLink.href
+            const a = el.getElementsByClassName('link__link')[0].append(sourceLink)
             el.getElementsByClassName('link__saved')[0].innerText = formatDate(new Date(link._microblog.date_favorited))
             el.getElementsByClassName('link__delete')[0].dataset.id = link.id
 
@@ -123,7 +128,7 @@
         </div>
         <div>
             <div class="link__title"></div>
-            <div class="link__link"><a href=""></a></div>
+            <div class="link__link"></div>
             <div class="link__dates">Saved: <span class="link__saved"></span></div>
             <a class="link__delete" href="#"><img src="/assets/delete.svg"></a>
         </div>
