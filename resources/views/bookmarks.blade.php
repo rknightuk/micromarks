@@ -91,7 +91,7 @@
             const contentEl = document.createElement('span')
             contentEl.innerHTML = content
             const sourceLink = Array.from(contentEl.getElementsByTagName('a')).slice(-1)[0]
-            sourceLink.remove()
+            if (sourceLink) sourceLink.remove()
             el.getElementsByClassName('link__title')[0].append(contentEl)
             sourceLink.title = sourceLink.href
             const a = el.getElementsByClassName('link__link')[0].append(sourceLink)
