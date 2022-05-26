@@ -90,10 +90,18 @@
             let content = link.content_html
             const contentEl = document.createElement('span')
             contentEl.innerHTML = content
-            const sourceLink = Array.from(contentEl.getElementsByTagName('a')).slice(-1)[0]
-            if (sourceLink) sourceLink.remove()
             el.getElementsByClassName('link__title')[0].append(contentEl)
-            sourceLink.title = sourceLink.href
+            let sourceLink = Array.from(contentEl.getElementsByTagName('a')).slice(-1)[0]
+            if (sourceLink) {
+                sourceLink.remove()
+                sourceLink.title = sourceLink.href
+            } else {
+                sourceLink =  document.createElement('a')
+                sourceLink.href = link.url
+                sourceLink.title = link.url
+                sourceLink.innerText = link.url
+                console.log(sourceLink)
+            }
             const a = el.getElementsByClassName('link__link')[0].append(sourceLink)
             el.getElementsByClassName('link__saved')[0].innerText = formatDate(new Date(link._microblog.date_favorited))
             el.getElementsByClassName('link__delete')[0].dataset.id = link.id
