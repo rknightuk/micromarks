@@ -50,8 +50,9 @@ class IndieAuthController extends Controller
     public function redirect(Request $request)
     {
         \session_start();
-        Client::$clientID = 'http://micromarks.test/';
-        Client::$redirectURL = 'http://micromarks.test/redirect';
+        $appUrl = env('APP_URL');
+        Client::$clientID = $appUrl . '/';
+        Client::$redirectURL = $appUrl . '/redirect';
 
         [$response, $error] = Client::complete([
             'code' => $request->input('code'),
