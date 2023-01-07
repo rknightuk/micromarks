@@ -1,3 +1,13 @@
+:root {
+    --row-highlight: #fbf9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --row-highlight: #1d2733;
+    }
+}
+
 .login {
     display: flex;
     justify-content: center;
@@ -70,7 +80,7 @@
 }
 
 .link:nth-child(even) {
-    background: #fbf9f9;
+    background: var(--row-highlight);
 }
 
 .link__checkbox {
@@ -98,6 +108,11 @@
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.link__delete svg {
+    width: 20px;
+    height: 20px;
 }
 
 .logout-button {

@@ -124,7 +124,11 @@
             <div class="link__title"></div>
             <div class="link__link"></div>
             <div class="link__dates">Saved: <span class="link__saved"></span></div>
-            <a class="link__delete" href="#"><img src="/assets/delete.svg"></a>
+            <a class="link__delete" href="#">
+                <svg class="icon">
+                    <use xlink:href="#delete"></use>
+                </svg>
+            </a>
         </div>
     </div>
 
