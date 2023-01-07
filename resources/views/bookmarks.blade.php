@@ -2,20 +2,6 @@
 
 @section('content')
 
-    <div class="header">
-        <h1><img src="/assets/bookmark.svg">Micromarks</h1>
-        <p>Manage your <a href="https://micro.blog">Micro.blog</a> bookmarks.</p>
-    </div>
-    <div class="details">
-        <div>
-            <img class="avatar" src="{{session()->get('mb_user')['photo']}}">
-        </div>
-        <div>
-            <p>Signed in as {{ session()->get('mb_user')['name'] }} <a href="/logout">Sign Out</a><br>
-                <a href="{{ session()->get('mb_user')['url'] }}">{{ session()->get('mb_user')['url'] }}</a></p>
-        </div>
-    </div>
-
     <div class="actions">
         <input type="text" placeholder="search bookmarks" class="search" id="search">
         <button onclick="deleteSelected()">Delete Selected</button>

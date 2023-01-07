@@ -2,10 +2,6 @@
 
 @section('content')
 
-    <div class="header">
-        <h1><img src="/assets/bookmark.svg">Micromarks</h1>
-        <p>Manage your <a href="https://micro.blog">Micro.blog</a> bookmarks. Sign in with your domain below.</p>
-    </div>
     @if (session()->get('errors') && isset(session()->get('errors')->all()[0]))
         <p class="errors">
             {{ session()->get('errors')->all()[0] }}
